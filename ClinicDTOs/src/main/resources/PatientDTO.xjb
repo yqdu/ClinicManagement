@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+	version="2.1" schemaLocation="PatientDTO.xsd" node="/xs:schema">
+
+	<schemaBindings>
+		<package name="edu.stevens.cs548.clinic.service.dto" />
+	</schemaBindings>
+
+	<globalBindings>
+		<javaType name="java.util.Date" xmlType="xs:date"
+			parseMethod="edu.stevens.cs548.clinic.service.dto.util.DateAdapter.parseDate"
+			printMethod="edu.stevens.cs548.clinic.service.dto.util.DateAdapter.printDate" />
+	</globalBindings>
+
+</bindings>

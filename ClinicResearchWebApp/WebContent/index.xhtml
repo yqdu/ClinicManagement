@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="WEB-INF/templates/template.xhtml">
+	<ui:define name="title">#{bundle['treatments.title']}</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<p align="center">
+				<h:dataTable id="treatments" styleClass="gridTable"
+					summary="#{bundle['treatments.summary']}"
+					value="#{researchBacking.treatments}"
+					var="treatment">
+					<h:column>
+						<f:facet name="subject">
+							<h:outputText value="#{bundle['treatments.header.subject']}" />
+						</f:facet>
+						<h:outputText id="subject" value="#{treatment.subject.subjectId}" size="10" />
+					</h:column>
+					<h:column>
+						<f:facet name="date">
+							<h:outputText value="#{bundle['treatments.header.date']}" />
+						</f:facet>
+						<h:outputText value="#{treatment.date}">
+							<f:convertDateTime pattern="dd.MM.yyyy" />
+						</h:outputText>
+					</h:column> 
+					<h:column>
+						<f:facet name="drugName">
+							<h:outputText value="#{bundle['treatments.header.drugName']}" />
+						</f:facet>
+						<h:outputText id="drugName" value="#{treatment.drugName}" size="20" />
+					</h:column>
+					<h:column>
+						<f:facet name="dosage">
+							<h:outputText value="#{bundle['treatments.header.dosage']}" />
+						</f:facet>
+						<h:outputText id="dosage" value="#{treatment.dosage}" >
+					        <f:convertNumber type="number"/>
+						</h:outputText>
+					</h:column>
+					
+					<f:facet name="caption">
+						<h:outputText value="#{bundle['treatments.caption']}" />
+					</f:facet>
+				</h:dataTable>
+			</p>
+			
+			<p align="center">
+				<h:outputLabel for="refresh">
+        			#{bundle['treatments.refresh']}:
+    			</h:outputLabel>
+				<h:commandButton  
+					label="refresh"
+					value="#{bundle['treatments.refresh']}"
+					id="refreshButton" 
+					action="#{researchBacking.refreshTreatments}" />
+				<br/>
+        		<h:message for="refresh" style="color: red"/>
+				<h:messages globalOnly="true" style="color: red"/>
+			</p>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ClinicResearchWebApp-1.0.0">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="ClinicResearchServiceClient-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ClinicResearchServiceClient/ClinicResearchServiceClient">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ClinicDomain-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ClinicDomain/ClinicDomain">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/ChatWebApp/build/classes"/>
+        <property name="component.inclusion.patterns" value="META-INF/**,**/Clinic*.jar,**/Clinic*.war"/>
+        <property name="context-root" value="ClinicResearchWebApp"/>
+    </wb-module>
+</project-modules>

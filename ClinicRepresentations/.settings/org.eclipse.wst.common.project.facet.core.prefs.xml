@@ -1,0 +1,20 @@
+<root>
+  <facet id="jpt.jaxb">
+    <node name="libprov">
+      <attribute name="provider-id" value="jaxb-user-library-provider"/>
+    </node>
+    <node name="platform">
+      <attribute name="platform-id" value="generic_2_1"/>
+    </node>
+    <node name="schemas">
+      <node name="schema-1">
+        <attribute name="location" value="platform:/resource/ClinicRepresentations/src/main/resources/LinkType.xsd"/>
+        <attribute name="namespace" value="http://cs548.stevens.edu/clinic/service/web/rest/data/dap"/>
+      </node>
+      <node name="schema-2">
+        <attribute name="location" value="platform:/resource/ClinicRepresentations/src/main/resources/ClinicData.xsd"/>
+        <attribute name="namespace" value="http://cs548.stevens.edu/clinic/service/web/rest"/>
+      </node>
+    </node>
+  </facet>
+</root>

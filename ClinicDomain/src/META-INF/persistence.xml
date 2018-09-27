@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="ClinicDomain">
+		<description>Domain model for a clinical information system</description>
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<jta-data-source>jdbc/serfdb</jta-data-source>
+		<class>edu.stevens.cs548.clinic.domain.Patient</class>
+		<class>edu.stevens.cs548.clinic.domain.Treatment</class>
+		<class>edu.stevens.cs548.clinic.domain.DrugTreatment</class>
+		<class>edu.stevens.cs548.clinic.domain.Provider</class>
+		<class>edu.stevens.cs548.clinic.domain.Surgery</class>
+		<class>edu.stevens.cs548.clinic.domain.Radiology</class>
+		<class>edu.stevens.cs548.clinic.billing.BillingRecord</class>
+		<class>edu.stevens.cs548.clinic.research.DrugTreatmentRecord</class>
+		<class>edu.stevens.cs548.clinic.research.Subject</class>
+		<properties>
+			<!-- <property name="eclipselink.target-database" value="Derby"/> -->
+			<property name="eclipselink.target-database" value="PostgreSQL" />
+
+			<!-- <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/serfdb"/>  
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>  
+            <property name="javax.persistence.jdbc.user" value="serf"/>  
+            <property name="javax.persistence.jdbc.password" value="pwserf"/> -->
+ 
+			<!-- See more at: http://www.eclipse.org/eclipselink/documentation/2.5/jpa/extensions/p_ddl_generation.htm -->
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+			<property name="eclipselink.create-ddl-jdbc-file-name" value="createDDL.sql" />
+			<property name="eclipselink.drop-ddl-jdbc-file-name" value="dropDDL.sql" />
+		</properties>
+	</persistence-unit>
+</persistence>

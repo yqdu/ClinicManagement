@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="WEB-INF/templates/template.xhtml">
+	<ui:define name="title">#{bundle['bills.title']}</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<p align="center">
+				<h:dataTable id="bills" styleClass="gridTable"
+					summary="#{bundle['bills.summary']}"
+					value="#{billingBacking.bills}"
+					var="bill">
+					<h:column>
+						<f:facet name="patient">
+							<h:outputText value="#{bundle['bills.header.patient']}" />
+						</f:facet>
+						<h:outputText id="name" value="#{bill.treatment.patient.name}" size="10" />
+					</h:column>
+					<h:column>
+						<f:facet name="date">
+							<h:outputText value="#{bundle['bills.header.date']}" />
+						</f:facet>
+						<h:outputText value="#{bill.date}">
+							<f:convertDateTime pattern="dd.MM.yyyy" />
+						</h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="description">
+							<h:outputText value="#{bundle['bills.header.description']}" />
+						</f:facet>
+						<h:outputText id="description" value="#{bill.description}" size="20" />
+					</h:column>
+					<h:column>
+						<f:facet name="amount">
+							<h:outputText value="#{bundle['bills.header.amount']}" />
+						</f:facet>
+						<h:outputText id="amount" value="#{bill.amount}" >
+							        <f:convertNumber type="currency"/>
+							</h:outputText>
+					</h:column>
+					
+					<f:facet name="caption">
+						<h:outputText value="#{bundle['bills.caption']}" />
+					</f:facet>
+				</h:dataTable>
+			</p>
+			
+			<p align="center">
+				<h:outputLabel for="refresh">
+        			#{bundle['bills.refresh']}:
+    			</h:outputLabel>
+				<h:commandButton 
+					label="refresh"
+					value="#{bundle['bills.refresh']}"
+					id="refreshButton" 
+					action="#{billingBacking.refreshBills}" />
+				<br/>
+        		<h:message for="refresh" style="color: red"/>
+				<h:messages globalOnly="true" style="color: red"/>
+			</p>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

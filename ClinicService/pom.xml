@@ -1,0 +1,52 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>ClinicService</artifactId>
+	<packaging>ejb</packaging>
+
+	<parent>
+		<groupId>edu.stevens.cs548</groupId>
+		<artifactId>ClinicRoot</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../ClinicRoot/pom.xml</relativePath>
+	</parent>
+
+	<build>
+		<sourceDirectory>ejbModule</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>ejbModule</directory>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-ejb-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>edu.stevens.cs548</groupId>
+			<artifactId>ClinicDomain</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>edu.stevens.cs548</groupId>
+			<artifactId>ClinicDTOs</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>edu.stevens.cs548</groupId>
+			<artifactId>ClinicInit</artifactId>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>edu.stevens.cs548</groupId>
+			<artifactId>ClinicServiceClient</artifactId>
+		</dependency>
+	</dependencies>
+</project>

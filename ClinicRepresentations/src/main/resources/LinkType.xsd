@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://cs548.stevens.edu/clinic/service/web/rest/data/dap" 
+	elementFormDefault="unqualified" 
+	xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://cs548.stevens.edu/clinic/service/web/rest/data/dap">
+
+    <complexType name="LinkType">
+    	<attribute name="url" type="anyURI"></attribute>
+    	<attribute name="relation" type="anyURI"></attribute>
+    	<attribute name="mediaType" type="string"></attribute>
+    </complexType>
+    
+</schema>
